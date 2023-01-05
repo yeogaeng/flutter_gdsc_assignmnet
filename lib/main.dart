@@ -9,6 +9,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      home: Deokbooreum(),
+    );
+  }
+}
+
+class Deokbooreum extends StatelessWidget {
+  const Deokbooreum({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(53),
@@ -76,66 +87,66 @@ class MyApp extends StatelessWidget {
                       child: Text('지금 이벤트 참가하고 더보이즈 굿즈 받기', style: TextStyle(color: Colors.white,fontSize: 12))
                   ),
                   Positioned(
-                      left: 24,
-                      bottom: 24,
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0,0,9,0),
-                            child: Icon(Icons.circle, size: 7, color: Color(0xFFF8F8F8)),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0,0,9,0),
-                            child: Icon(Icons.circle, size: 7, color: Color(0x7FF8F8F8)),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0,0,9,0),
-                            child: Icon(Icons.circle, size: 7, color: Color(0x7FF8F8F8)),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0,0,9,0),
-                            child: Icon(Icons.circle, size: 7, color: Color(0x7FF8F8F8)),
-                          ),
-                        ],
-                      ),
+                    left: 24,
+                    bottom: 24,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0,0,9,0),
+                          child: Icon(Icons.circle, size: 7, color: Color(0xFFF8F8F8)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0,0,9,0),
+                          child: Icon(Icons.circle, size: 7, color: Color(0x7FF8F8F8)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0,0,9,0),
+                          child: Icon(Icons.circle, size: 7, color: Color(0x7FF8F8F8)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0,0,9,0),
+                          child: Icon(Icons.circle, size: 7, color: Color(0x7FF8F8F8)),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
               Container(
-                width: 335,
-                height: 80,
-                margin: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Stack(
-                    children: <Widget>[
-                      Positioned(
+                  width: 335,
+                  height: 80,
+                  margin: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Stack(
+                      children: <Widget>[
+                        Positioned(
                           left: 18,
                           top: 20,
                           child: Text('심부름 신청하러 가기', style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 16,
-                                  color: Colors.white)
+                              fontWeight: FontWeight.w800,
+                              fontSize: 16,
+                              color: Colors.white)
                           ),),
-                      Positioned(
-                          left: 18,
-                          top: 44,
-                          child: Text('덕질 관련 심부름을 신청해 보세요!', style: TextStyle(color: Colors.white, fontSize: 14),
-                          )
-                      ),
-                      Positioned(
-                          left: 271,
-                          top: 20,
-                          child: Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(color: Color(0xFF3E3E40), borderRadius: BorderRadius.circular(100),),
-                            child: Icon(Icons.east , size: 19,color: Color(0xFFFFFFFF), ),
-                          ))
-                    ]
-                )
+                        Positioned(
+                            left: 18,
+                            top: 44,
+                            child: Text('덕질 관련 심부름을 신청해 보세요!', style: TextStyle(color: Colors.white, fontSize: 14),
+                            )
+                        ),
+                        Positioned(
+                            left: 271,
+                            top: 20,
+                            child: Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(color: Color(0xFF3E3E40), borderRadius: BorderRadius.circular(100),),
+                              child: Icon(Icons.east , size: 19,color: Color(0xFFFFFFFF), ),
+                            ))
+                      ]
+                  )
               ),
               Container(//최근 등록된 심부름
                   width: 335,
@@ -144,8 +155,15 @@ class MyApp extends StatelessWidget {
                   children: <Widget>[
                     Text('최근 등록된 심부름', style:TextStyle(fontSize: 16, fontWeight: FontWeight.w800,),),
                     Spacer(),
-                    Text('더보기', style: TextStyle(fontSize: 13, color: Color(0xFFB1B1B4),)),
-                    Icon(Icons.arrow_forward_ios, size: 13,color: Color(0xFFB1B1B4), ),
+                    TextButton(
+                        child: Row(
+                          children: <Widget> [
+                            Text('더보기', style: TextStyle(fontSize: 13, color: Color(0xFFB1B1B4),)),
+                            Icon(Icons.arrow_forward_ios, size: 13,color: Color(0xFFB1B1B4), ),
+                          ],
+                        ),
+                        onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => Simbooreum()),);},
+                    ),
                   ]
                 )
               ),
@@ -186,19 +204,19 @@ class MyApp extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   color: Color(0xFFF8F8F8),
                                   borderRadius: BorderRadius.circular(16),
-                                 ),
+                                ),
                                 child: Text('팬싸 대리응모', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 12, color: Color(0xFF3C88FA)),
                                 ),
                               ),
 
                               Container(
-                                  width:  26,
-                                  height: 26,
-                                  margin: EdgeInsets.fromLTRB(0, 8, 6, 0),
-                                  padding: EdgeInsets.fromLTRB(3, 5, 0, 0),
-                                  child: Text('+2', style: TextStyle(fontWeight: FontWeight.w800,color: Color(0xFFF8F8F8)),),
-                                  decoration: BoxDecoration(color: Color(0xFF3C88FA), borderRadius: BorderRadius.circular(100),),
-                                ),
+                                width:  26,
+                                height: 26,
+                                margin: EdgeInsets.fromLTRB(0, 8, 6, 0),
+                                padding: EdgeInsets.fromLTRB(3, 5, 0, 0),
+                                child: Text('+2', style: TextStyle(fontWeight: FontWeight.w800,color: Color(0xFFF8F8F8)),),
+                                decoration: BoxDecoration(color: Color(0xFF3C88FA), borderRadius: BorderRadius.circular(100),),
+                              ),
                             ],
                           ),
                           Padding(
@@ -247,7 +265,7 @@ class MyApp extends StatelessWidget {
                                 child: Text('팬싸 대리줄서기', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 12, color: Color(0xFF3C88FA)),),
                               ),
 
-                              
+
                             ],
                           ),
                           Padding(
@@ -311,3 +329,244 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+class Simbooreum extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    return MaterialApp(
+      home: MyPage(),
+      theme: ThemeData(fontFamily: 'Pretendard'),
+    );
+  }
+}
+class MyPage extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation:0,
+          title: Padding(
+            padding: EdgeInsets.fromLTRB(165, 14, 0, 0),
+            //centerTitle: true,,
+            child: Text('심부름', style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800,color: Colors.black),),
+          )
+      ),
+      body:
+      Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Container(
+              width: 335,
+              height: 135,
+              margin: EdgeInsets.all(20.0),
+              //margin: EdgeInsets.fromLTRB(20.0,112.0,20.0,16.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromRGBO(187, 193, 208, 230),
+                    spreadRadius: 0.1,
+                    blurRadius: 1,
+                    offset: Offset(4,4),
+                  ),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        color: Colors.white,
+                        margin: EdgeInsets.fromLTRB(20.0, 23.0, 0.0, 0.0),
+                        child: Text('서울 광진구',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800,color: Colors.black),),
+                      ),
+                      Spacer(),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0.0, 23.0, 20.0, 0.0),
+                        padding: EdgeInsets.all(6.0),
+                        child: Text('시급 1만원', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800 ,color: Color(0xFF04BCD6)),),
+                        decoration: BoxDecoration(color: Color(0xFFE0F4F8), borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(20.0, 6.0, 0.0, 0.0),
+                    child: Text('8/6 오후 8:00',style: TextStyle(fontSize: 13, color: Color(0xFF9A9A9A)),),
+                  ),
+                  Container(
+                    height: 32,
+                    width: 91,
+                    margin: EdgeInsets.fromLTRB(18.0, 14.0, 0.0, 0.0),
+                    padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(244, 248, 255, 65),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Text('팬싸 대리응모',style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800,color: Colors.blueAccent),),
+                  ),
+                ],
+              )
+          ),
+          Container( //마포구
+            width: 335,
+            height: 135,
+            margin: EdgeInsets.fromLTRB(20.0,0.0,20.0,16.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Color.fromRGBO(187, 193, 208, 230),
+                  spreadRadius: 0.1,
+                  blurRadius: 1,
+                  offset: Offset(4,4),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      color: Colors.white,
+                      margin: EdgeInsets.fromLTRB(20.0, 23.0, 0.0, 0.0),
+                      child: Text('서울 마포구',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800,color: Colors.black),),
+                    ),
+                    Spacer(),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(0.0, 23.0, 20.0, 0.0),
+                      padding: EdgeInsets.all(6.0),
+                      child: Text('시급 5만원', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800 ,color: Color(0xFF8F5BFF)),),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF0E9FF),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  margin: EdgeInsets.fromLTRB(20.0, 6.0, 0.0, 0.0),
+                  child: Text('8/7 오후 12:00',style: TextStyle(fontSize: 13, color: Color(0xFF9A9A9A)),),
+                ),
+                Container(
+                  height: 32,
+                  width: 91,
+                  margin: EdgeInsets.fromLTRB(18.0, 14.0, 0.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(244, 248, 255, 65),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Text('앨범 대리구매',style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800,color: Colors.blueAccent),),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: 335,
+            height: 175,
+            margin: EdgeInsets.all(0.0),
+            //margin: EdgeInsets.fromLTRB(20.0,112.0,20.0,16.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Color.fromRGBO(187, 193, 208, 230),
+                  spreadRadius: 0.1,
+                  blurRadius: 1,
+                  offset: Offset(4,4),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      color: Colors.white,
+                      margin: EdgeInsets.fromLTRB(20.0, 23.0, 0.0, 0.0),
+                      child: Text('서울 구로구',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800,color: Colors.black),),
+                    ),
+                    Spacer(),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(0.0, 23.0, 20.0, 0.0),
+                      padding: EdgeInsets.all(6.0),
+                      child: Text('시급 7천원', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800 ,color: Color(0xFFFF6CD6)),),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFFFECFA),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  margin: EdgeInsets.fromLTRB(20.0, 6.0, 0.0, 0.0),
+                  child: Text('8/8 오전 7:32',style: TextStyle(fontSize: 13, color: Color(0xFF9A9A9A)),),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 32,
+                      width: 91,
+                      margin: EdgeInsets.fromLTRB(18.0, 14.0, 8.0, 0.0),
+                      padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(244, 248, 255, 65),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Text('앨범 대리구매',style: TextStyle(fontWeight: FontWeight.w800,fontSize: 13, color: Colors.blueAccent),),
+                    ),
+                    Container(
+                      height: 32,
+                      width: 91,
+                      margin: EdgeInsets.fromLTRB(8.0, 14.0, 0.0, 0.0),
+                      padding: EdgeInsets.fromLTRB(10.0, 8.0, 0.0, 8.0),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(244, 248, 255, 65),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Text('럭드 대리구매',style: TextStyle(fontWeight: FontWeight.w800,fontSize: 13, color: Colors.blueAccent),),
+                    ),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(8.0, 14.0, 0.0, 0.0),
+                      padding: EdgeInsets.fromLTRB(10.0, 8.0, 0.0, 0.0),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(244, 248, 255, 65),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Text('팬싸 대리응모',style: TextStyle(fontWeight: FontWeight.w800,fontSize: 13, color: Colors.blueAccent),),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 32,
+                  width: 102,
+                  margin: EdgeInsets.fromLTRB(18.0, 8.0, 0.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(244, 248, 255, 65),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text('행사 대리줄서기',style: TextStyle(fontWeight: FontWeight.w800,fontSize: 13, color: Colors.blueAccent),),
+                ),
+              ],
+            ),
+          ),
+        ],
+        //Text('서울광진구')
+//          width: 335, height: 135,
+      ),
+
+    );
+  }
+}
+
